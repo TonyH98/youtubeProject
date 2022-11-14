@@ -1,0 +1,18 @@
+header{
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    text-align: center;
+    border: black solid 1px;
+    background-color: red;
+}
+
+
+.nav-links{
+    color: white;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    text-align: center;
+}
+
+

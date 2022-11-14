@@ -1,13 +1,16 @@
 
+import "./home.css"
+
 export default function Home () {
     return (
-        <div>
-            <label htmlFor="search">Search
+        <div className="search-feature">
+            <label htmlFor="search">
+            Search:
+            </label>
             <input
             type="text"
             placeholder="Search">
             </input>
-            </label>
             <button>Submit</button>
         </div>
     )

@@ -1,18 +1,23 @@
 import { Link } from "react-router-dom"
+import  "./navigate.css"
 
-
-export default Navigate = () => {
+export default function Navigate () {
     return(
         <header>
+          <aside>Youtube</aside>
       <nav>
-        <ul>
-          <li>
+        
+        <section className="nav-links">
+
+            <aside>
             <Link to="/">Home</Link>
-          </li>
-          <li>
+            </aside>
+      
+          <aside>
             <Link to="/about">About</Link>
-          </li>
-        </ul>
+          </aside>
+        </section>
+
       </nav>
     </header>
     )
