@@ -1,7 +1,7 @@
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
-export default Navigate = () => {
+export default function Navigate () {
     return(
         <header>
       <nav>
