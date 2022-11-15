@@ -15,6 +15,13 @@ setYoutube(res)
 console.log(youtube)
 
 
+// function grabID(){
+   
+// }
+
+// path for video id
+// items[2].id.videoId
+
     return (
         <div className="search-feature">
             <input
@@ -22,6 +29,11 @@ console.log(youtube)
             placeholder="Search...">
             </input>
             <button>Submit</button>
+            <div > 
+            <YouTube 
+            // videoId ={}
+            /> 
+            </div>
         </div>
     )
 }
