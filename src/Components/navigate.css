@@ -1,14 +1,23 @@
 header{
-    display: grid;
-    grid-template-columns: repeat(2, 100px);
     text-align: center;
     border: black solid 1px;
     background-color: red;
+    height:50px;
+    font-size: 20px;
 }
 
+nav{
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    margin-top: 10px;
+}
+
+.logo{
+   font-weight: bold;
+   color: white;
+}
 
 .nav-links{
-    color: white;
     list-style: none;
     display: grid;
     grid-template-columns: repeat(2, 100px);

@@ -6,6 +6,8 @@ import Home from './Components/home';
 import Navigate from './Components/navigate'
 import About from './Components/about'
 
+import ErrorMessage from "../src/Components/errors/ErrorMessage"
+
 
 function App() {
 

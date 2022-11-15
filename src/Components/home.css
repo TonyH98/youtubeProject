@@ -4,5 +4,12 @@
 
 button{
 background-color: red;
-color: white
+color: white;
+height: 33px;
+}
+
+input{
+    width: 300px;
+    height: 30px;
+    font-size: 20px;
 }

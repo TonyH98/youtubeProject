@@ -4,8 +4,8 @@ import  "./navigate.css"
 export default function Navigate () {
     return(
         <header>
-          <aside>Youtube</aside>
       <nav>
+          <aside className="logo">Youtube</aside>
         
         <section className="nav-links">
 
