@@ -8,10 +8,9 @@ const [youtube , setYoutube] = useState([])
 useEffect(() => {
 getYoutubeVideos()
 .then(res => {
-setYoutube(res)
+setYoutube([res])
 })
 }, [])
-
 console.log(youtube)
 
 
@@ -22,6 +21,7 @@ console.log(youtube)
             placeholder="Search...">
             </input>
             <button>Submit</button>
+            
         </div>
     )
 }

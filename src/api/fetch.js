@@ -4,11 +4,9 @@
 
     export const getYoutubeVideos = () => {
       return (
-
          fetch(`${URL}${key}`)
          .then((res) => res.json())
       )
     }
     
 
-    
