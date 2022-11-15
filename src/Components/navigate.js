@@ -5,7 +5,7 @@ export default function Navigate () {
     return(
         <header>
       <nav>
-          <aside className="logo">Youtube</aside>
+          <aside className="logo"><Link to="/">Youtube</Link></aside>
         
         <section className="nav-links">
 
