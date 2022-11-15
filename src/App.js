@@ -8,6 +8,8 @@ import About from './Components/about'
 
 
 function App() {
+
+
   return(
     <div className='wrapper'>
       <Router> 
