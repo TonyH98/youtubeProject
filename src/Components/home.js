@@ -6,7 +6,7 @@ import ResultError from "../Components/errors/ResultsError"
  import "./home.css"
 
  export default function Home () {
- const [youtube , setYoutube] = useState([Snowboard])
+ const [youtube , setYoutube] = useState(Snowboard)
 //  const [resultError, setResultError] = useState(false)
 
 
@@ -21,13 +21,17 @@ import ResultError from "../Components/errors/ResultsError"
              <button>Submit</button>
          <div>
              <br></br>
+             <br></br>
+             <div className="thumbnails">
+        
          {
             youtube.map((yt) => {
                 return (
-                    <Video yt={yt}/>
+                    <Video key={yt.id.videoId} yt={yt}/>
                 )
             })
          }
+             </div>
          </div>
          </div>
      )

@@ -21,3 +21,10 @@ input:hover{
 button:hover{
     background-color: darkred;
 }
+
+.thumbnails{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    border: black 1px solid;
+}

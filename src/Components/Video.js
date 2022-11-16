@@ -1,11 +1,12 @@
+import "./Video.css"
 
-
-
-export default function Video( {yt} ){
+export default function Video({yt}){
     return(
         <section>
-            <div>
+            <div className="title">
+            <img className="thumbnails" src={yt.snippet.thumbnails.medium.url} alt="thumbnail"/>
             </div>
+             <aside>{yt.snippet.title}</aside> 
         </section>
     )
 }
