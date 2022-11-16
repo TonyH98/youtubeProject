@@ -1,32 +1,39 @@
 import {useState} from 'react'
 
+export default function Form({handleComment}) {
 
-
-
-
-export default function Form() {
     const [comments, setComment] = useState({
       name : "",
       comm: ""
     });
   
-  
-    function handleSubmit(event) {
-      event.preventDefault();
-      
-      .then((response) => {
-      
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    function addComment(){
+      const createComment = {
+      name: comments.name,
+      comm: comments.comm
+      }
+      handleComment(createComment)
     }
   
+    
     function handleTextChange(event) {
       setComment({
-        ...comment,
-        [event.target.id]: event.target.value,
-      });
+        ...comments, [event.target.id]: event.target.value
+      })
+    }
+
+    function reset(){
+      setComment({
+      name : "",
+      comm: ""
+      })
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      addComment()
+      reset()
+      
     }
   
     return (
@@ -42,14 +49,12 @@ export default function Form() {
         <label htmlFor="comment">Comment:</label>
         <input
           type="text"
-          id="comment"
+          id="comm"
           value={comments.comm}
           onChange={handleTextChange}
         />
-  
         <br />
-  
-        <input type="submit" />
+        <input type="submit" /> 
       </form>
     );
   }

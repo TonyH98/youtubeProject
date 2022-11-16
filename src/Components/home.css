@@ -5,11 +5,19 @@
 button{
 background-color: red;
 color: white;
-height: 33px;
+height: 30px
 }
 
 input{
-    width: 300px;
+    width: 320px;
     height: 30px;
     font-size: 20px;
+}
+
+input:hover{
+    background-color: lightblue;
+}
+
+button:hover{
+    background-color: darkred;
 }

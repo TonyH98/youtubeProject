@@ -2,7 +2,7 @@
 import { useState, useEffect} from "react"
 
 import ResultError from "../Components/errors/ResultsError"
-import Video from './Components/Video'
+
 import "./home.css"
 
 import {getYoutubeVideos} from '../api/fetch'
@@ -22,7 +22,7 @@ useEffect(() => {
         });
     }, []);
     
-    console.log(youtube)
+    
     return (
         <div className="search-feature">
             <input

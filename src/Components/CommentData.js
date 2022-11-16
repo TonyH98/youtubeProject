@@ -1,6 +1,8 @@
-export default const CommentData = [
+const CommentData = [
     {
-        name: null
-        comm: null
+        name: null,
+        comm: null,
     }
 ]
+
+export default CommentData

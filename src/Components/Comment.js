@@ -1,22 +1,15 @@
-import CommentData from './CommentData'
 
+export default function Comment({comment}){ 
 
-export default function Comment(){
-    
-    
-    return (
-        <>
-        <section> 
-            
-           { CommentData.map((e)=>{
-            return (
-                <div> 
-                   { e.name} - {e.comm}
-                </div>
-            )
-        
-          })}
-            </section> 
-        </>
+    return(
+        <section>
+            <ul>
+            {comment.map((e) => {
+                return(
+                <li>{e.name}: {e.comm}</li>
+                )
+            })}
+            </ul>
+        </section>
     )
 }
