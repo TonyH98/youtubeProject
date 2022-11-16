@@ -23,7 +23,7 @@ function App() {
           <br></br>
           <br></br>
         <Routes>
-        <Route path ="/video/:id" element ={<VideoID/>}/>
+        <Route path ="/videos/:id" element ={<VideoID/>}/>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/*" element={<ErrorMessage/>}></Route>
