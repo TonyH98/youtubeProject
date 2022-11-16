@@ -1,4 +1,6 @@
 import {useState} from 'react'
+import "./Form.css"
+
 
 export default function Form({handleComment}) {
 
@@ -40,20 +42,23 @@ export default function Form({handleComment}) {
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input
+        placeholder='Name'
           type="text"
           id="name"
           value={comments.name}
           onChange={handleTextChange}
         />
-  
+        <br></br>
+        <br></br>
         <label htmlFor="comment">Comment:</label>
         <input
+        placeholder='Comment'
           type="text"
           id="comm"
           value={comments.comm}
           onChange={handleTextChange}
         />
-        <br />
+       <br></br>
         <input type="submit" /> 
       </form>
     );

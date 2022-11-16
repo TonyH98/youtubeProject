@@ -1,3 +1,11 @@
-export default function Video(){
-    return null
+
+
+
+export default function Video( {yt} ){
+    return(
+        <section>
+            <div>
+            </div>
+        </section>
+    )
 }

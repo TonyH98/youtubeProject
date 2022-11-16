@@ -1,4 +1,4 @@
-
+import "./Comment.css"
 export default function Comment({comment}){ 
 
     return(

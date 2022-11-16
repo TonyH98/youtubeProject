@@ -1,4 +1,4 @@
-const snowboard = [
+const Snowboard = [
     {
       kind: "youtube#searchResult",
       etag: "w4C2HW6_xjURgKGee3rN5Bhswhs",
@@ -867,4 +867,4 @@ const snowboard = [
     },
   ];
 
-  export snowboard
+  export default Snowboard

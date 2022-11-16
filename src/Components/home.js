@@ -1,39 +1,36 @@
-
-import { useState, useEffect} from "react"
-
+ import { useState} from "react"
+ import Snowboard from "../data"
 import ResultError from "../Components/errors/ResultsError"
+ import Video from "./Video"
 
-import "./home.css"
+ import "./home.css"
 
-import {getYoutubeVideos} from '../api/fetch'
+ export default function Home () {
+ const [youtube , setYoutube] = useState([Snowboard])
+//  const [resultError, setResultError] = useState(false)
 
-export default function Home () {
-const [youtube , setYoutube] = useState([])
-const [resultError, setResultError] = useState(false)
 
-useEffect(() => {
-    getYoutubeVideos()
-      .then((response) => {
-          setYoutube(response);
-          
-        })
-        .catch((error) => {
-            
-        });
-    }, []);
     
-    
-    return (
-        <div className="search-feature">
+     return (
+         <div className="search-feature">
             <input
-            type="text"
-            placeholder="Search...">
-            </input>
-            <button>Submit</button>
-        <div>
-            <br></br>
-        {!resultError ? (<ResultError/> ): null}
-        </div>
-        </div>
-    )
-}
+             className="search"
+             type="text"
+             placeholder="Search...">
+             </input>
+             <button>Submit</button>
+         <div>
+             <br></br>
+         {
+            youtube.map((yt) => {
+                return (
+                    <Video yt={yt}/>
+                )
+            })
+         }
+         </div>
+         </div>
+     )
+ }
+
+
