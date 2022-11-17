@@ -8,10 +8,6 @@ import YouTube from "react-youtube";
 export default function VideoID(){
 const [comment, setComment] = useState(CommentData)
 const {id} = useParams()
-
-
-
-
 function handleComment(comments){
     setComment([...comment, comments])
 }
@@ -25,6 +21,4 @@ return(
         <Comment comment={comment}/>
     </section>
 )
-
-
 }
