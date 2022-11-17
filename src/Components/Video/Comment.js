@@ -5,9 +5,18 @@ export default function Comment({comment}){
         <section>
             <ul>
             {comment.map((e) => {
-                return(
-                <li>{e.name}: {e.comm}</li>
-                )
+                if(e.name === null || e.comm === null){
+                    return (
+                        null
+                    )
+                }
+                else{
+
+                    return(
+                        
+                    <li>{e.name}: {e.comm}</li>
+                    )
+                }
             })}
             </ul>
         </section>
