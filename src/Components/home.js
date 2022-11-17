@@ -15,7 +15,7 @@ const [search, setSearch] = useState("");
 
 // this function calls the fetch with the search results, sets the results.items into the youtube array.
    function getResults(){
-    
+    if (search.length > 0){
     getYoutubeVideos(search)
      .then((response) => {
          setYoutube(response.items);
@@ -25,6 +25,7 @@ const [search, setSearch] = useState("");
 
        });
 
+    }
    }
 
   // this function gets the value that the user typed in the search bar and sets it to the search state  
@@ -37,7 +38,7 @@ const [search, setSearch] = useState("");
   
   }
 //   console.log(youtube)
-//   console.log(search)
+  console.log(search.length)
     return (
         <div className="search-feature">
            <input
