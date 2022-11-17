@@ -1,8 +1,8 @@
 import { useState} from "react"
 
-import ResultError from "../Components/errors/ResultsError"
-import Video from "./Video"
-import {getYoutubeVideos} from '../api/fetch'
+import ResultError from "../errors/ResultsError"
+import Video from "../Video/Video"
+import {getYoutubeVideos} from '../../api/fetch'
 
 import "./home.css"
 

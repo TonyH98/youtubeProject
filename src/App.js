@@ -3,13 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 import './App.css';
-import Home from './Components/home';
-import Navigate from './Components/navigate'
-import About from './Components/about'
+import Home from "./Components/Nav/home"
+import About from './Components/Nav/about'
+import Navigate from "./Components/Nav/navigate"
+import VideoID from './Components/Video/VideoID'
 
-import VideoID from './Components/VideoID'
 
-import ErrorMessage from "../src/Components/errors/ErrorMessage"
 
 
 function App() {
@@ -26,7 +25,7 @@ function App() {
         <Route path ="/videos/:id" element ={<VideoID/>}/>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/*" element={<ErrorMessage/>}></Route>
+        {/* <Route path="/vidoes/:*" element={<ErrorMessage/>}></Route> */}
         </Routes>
         </div>
       </Router>
