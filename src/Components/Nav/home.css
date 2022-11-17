@@ -28,3 +28,11 @@ button:hover{
     grid-template-columns: repeat(2, 1fr);
     border: black 1px solid;
 }
+
+.pagination{
+    margin-left: 400px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    color: #FF0000
+}

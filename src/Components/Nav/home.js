@@ -1,13 +1,16 @@
 import { useState} from "react"
-
+import ReactPaginate from "react-paginate";
 import ResultError from "../errors/ResultsError"
 import Video from "../Video/Video"
 import {getYoutubeVideos} from '../../api/fetch'
 
 import "./home.css"
 
+const pageData = 3
+
 export default function Home () {
 const [youtube , setYoutube] = useState([])
+const [currentPage, setCurrentPage] = useState(0)
  const [resultError, setResultError] = useState(false)
 const [search, setSearch] = useState("");
 
@@ -31,13 +34,25 @@ const [search, setSearch] = useState("");
   // this function gets the value that the user typed in the search bar and sets it to the search state  
    function handleTextChange(event) {
     const title = event.target.value;
-  
-  
-    setSearch(title);
-
+    setSearch(title)
   
   }
 //   console.log(youtube)
+
+
+function handlePageChange ({selected: selectedPage}){
+    setCurrentPage(selectedPage)
+  }
+  const offSet = currentPage * pageData
+  
+  const currentPageData = youtube
+  .slice(offSet, offSet + pageData)
+  .map((yt) => <Video key={yt.id.videoId} yt={yt}/>)
+  
+  const pageCount = Math.ceil(youtube.length/pageData) 
+
+
+
   console.log(search.length)
     return (
         <div className="search-feature">
@@ -51,17 +66,21 @@ const [search, setSearch] = useState("");
         <div>
             <br></br>
             <br></br>
-
-            {!resultError ? (<ResultError/>):(
-            <div className="thumbnails">
-                
+            <ReactPaginate
+         previousLabel={"Previous"}
+         nextLabel={"Next"}
+         pageCount={pageCount}
+         onPageChange={handlePageChange}
+         containerClassName={"pagination"}
+         previousLinkClassName={"pagination-link"}
+         nextLinkClassName={"pagination-link"}
+         />  
+        
+         {!resultError ? (<ResultError/>):(
+         <div className="thumbnails">
        
         {
-           youtube.map((yt) => {
-               return (
-                   <Video key={yt.id.videoId} yt={yt}/>
-               )
-           })
+           currentPageData
         }
             </div>
             )}

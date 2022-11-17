@@ -1,5 +1,11 @@
 import "./Comment.css"
-export default function Comment({comment}){ 
+
+export default function Comment({comment, setComment}){ 
+
+    const remove = (commentData) => {
+        const filter = comment.filter((c) => c !== commentData);
+        setComment(filter)
+    }
 
     return(
         <section>
@@ -10,11 +16,12 @@ export default function Comment({comment}){
                         null
                     )
                 }
-                else{
-
-                    return(
-                        
-                    <li>{e.name}: {e.comm}</li>
+                if(e.name.length > 0 || e.comm.length > 0){
+                    return(   
+                    <li>
+                        <span style={{fontWeight: "bold"}}>{e.name}</span>: {e.comm}
+                        <button onClick={() => remove(e)}>Remove</button>
+                        </li>
                     )
                 }
             })}

@@ -40,7 +40,7 @@ export default function Form({handleComment}) {
   
     return (
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name"><span style={{fontWeight: "bold"}}>Name:</span></label>
         <input
         placeholder='Name'
           type="text"
@@ -50,7 +50,7 @@ export default function Form({handleComment}) {
         />
         <br></br>
         <br></br>
-        <label htmlFor="comment">Comment:</label>
+        <label htmlFor="comment"><span style={{fontWeight: "bold"}}>Comment:</span></label>
         <input
         placeholder='Comment'
           type="text"

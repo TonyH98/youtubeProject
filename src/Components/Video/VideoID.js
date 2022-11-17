@@ -19,8 +19,11 @@ return(
         videoId={id}
         className={"youtube-video"}
         />
+        <br></br>
+        <section className="comment-section">
         <Form handleComment={handleComment}/>
-        <Comment comment={comment}/>
+        <Comment setComment={setComment}comment={comment}/>
+        </section>
     </section>
 )
 }
