@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react"
+import { useState} from "react"
 import Snowboard from "../data"
 import ResultError from "../Components/errors/ResultsError"
 import Video from "./Video"
@@ -12,8 +12,10 @@ const [youtube , setYoutube] = useState([])
 const [search, setSearch] = useState("");
 
 
-useEffect(() => {
-   getYoutubeVideos(search)
+
+// this function calls the fetch with the search results, sets the results.items into the youtube array.
+   function getResults(){
+    getYoutubeVideos(search)
      .then((response) => {
          setYoutube(response.items);
 
@@ -21,10 +23,10 @@ useEffect(() => {
        .catch((error) => {
 
        });
-   }, [search]);
 
-   
+   }
 
+  // this function gets the value that the user typed in the search bar and sets it to the search state  
    function handleTextChange(event) {
     const title = event.target.value;
   
@@ -43,7 +45,7 @@ useEffect(() => {
             placeholder="Search..."
             onChange={handleTextChange}/>
             
-            <button>Submit</button>
+            <button onClick={() => getResults()}>Submit</button>
         <div>
             <br></br>
             <br></br>
