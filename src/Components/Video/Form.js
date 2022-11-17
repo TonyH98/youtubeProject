@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 
 
@@ -37,6 +37,22 @@ export default function Form({handleComment}) {
       reset()
       
     }
+
+    useEffect(() => {
+      const enterKey = (event) => {
+        
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          handleSubmit(event);
+        }
+      };
+  
+      document.addEventListener('keydown', enterKey);
+  
+      return () => {
+        document.removeEventListener('keydown', enterKey);
+      };
+    }, []);
   
     return (
       <form onSubmit={handleSubmit}>
@@ -59,7 +75,7 @@ export default function Form({handleComment}) {
           onChange={handleTextChange}
         />
        <br></br>
-        <input type="submit" /> 
+       <button type="submit">Submit</button>
       </form>
     );
   }

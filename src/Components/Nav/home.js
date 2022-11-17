@@ -77,7 +77,7 @@ function handlePageChange ({selected: selectedPage}){
          />  
         
          {!resultError ? (<ResultError/>):(
-         <div className="thumbnails">
+            <div className="thumbnails">
        
         {
            currentPageData
