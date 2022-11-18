@@ -36,7 +36,7 @@ const backGroundColor = () => {
           <br></br>
         <Routes>
         <Route path="/videos/:id" element ={<VideoID  colors={colors}/>}/>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home colors={colors}/>} />
         <Route path="/about" element={<About colors={colors}/>} />
         <Route path="*" element={<ErrorMessage/>} />
         </Routes>

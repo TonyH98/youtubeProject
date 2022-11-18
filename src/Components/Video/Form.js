@@ -61,6 +61,7 @@ export default function Form({handleComment, colors}) {
         <label style={{color: "white"}} htmlFor="name"><span style={{fontWeight: "bold"}}>Name:</span></label>
         <input
         placeholder='Name'
+        autoComplete='off'
           type="text"
           id="name"
           value={comments.name}
@@ -71,6 +72,7 @@ export default function Form({handleComment, colors}) {
         <label style={{color: "white"}}htmlFor="comment"><span style={{fontWeight: "bold"}}>Comment:</span></label>
         <input
         placeholder='Comment'
+        autoComplete='off'
           type="text"
           id="comm"
           value={comments.comm}

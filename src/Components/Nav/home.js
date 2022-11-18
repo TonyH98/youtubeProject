@@ -62,6 +62,7 @@ function handlePageChange ({selected: selectedPage}){
         <div className="search-feature">
            <input
            ref={ref}
+           autoComplete = "off"
             className="search"
             type="text"
             placeholder="Search..."
