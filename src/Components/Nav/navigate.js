@@ -17,7 +17,7 @@ export default function Navigate () {
             <Link to="/about">About</Link>
           </aside>
         </section>
-
+      
       </nav>
     </header>
     )

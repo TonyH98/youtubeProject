@@ -6,9 +6,10 @@ import Form from "./Form"
 import YouTube from "react-youtube";
 import "./VideoID.css"
 
-export default function VideoID(){   
+export default function VideoID({colors}){   
 const [comment, setComment] = useState(CommentData)
 const {id} = useParams()
+
 function handleComment(comments){
     setComment([...comment, comments])
 }
@@ -21,8 +22,8 @@ return(
         />
         <br></br>
         <section className="comment-section">
-        <Form handleComment={handleComment}/>
-        <Comment setComment={setComment}comment={comment}/>
+        <Form colors={colors} handleComment={handleComment}/>
+        <Comment colors={colors} setComment={setComment}comment={comment}/>
         </section>
     </section>
 )

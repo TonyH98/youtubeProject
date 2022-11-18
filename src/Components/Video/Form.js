@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 
 
 
-export default function Form({handleComment}) {
+export default function Form({handleComment, colors}) {
 
     const [comments, setComment] = useState({
       name : "",
@@ -54,9 +54,11 @@ export default function Form({handleComment}) {
       };
     }, []);
   
-    return (
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name"><span style={{fontWeight: "bold"}}>Name:</span></label>
+     const handleColors = () => {
+       if(colors === "black"){
+         return (
+          <form onSubmit={handleSubmit}>
+        <label style={{color: "white"}} htmlFor="name"><span style={{fontWeight: "bold"}}>Name:</span></label>
         <input
         placeholder='Name'
           type="text"
@@ -66,7 +68,7 @@ export default function Form({handleComment}) {
         />
         <br></br>
         <br></br>
-        <label htmlFor="comment"><span style={{fontWeight: "bold"}}>Comment:</span></label>
+        <label style={{color: "white"}}htmlFor="comment"><span style={{fontWeight: "bold"}}>Comment:</span></label>
         <input
         placeholder='Comment'
           type="text"
@@ -77,6 +79,42 @@ export default function Form({handleComment}) {
        <br></br>
        <button type="submit">Submit</button>
       </form>
+         )
+       }
+       else{
+        return (
+
+        <form onSubmit={handleSubmit}>
+        <label style={{color: "black"}} htmlFor="name"><span style={{fontWeight: "bold"}}>Name:</span></label>
+        <input
+        placeholder='Name'
+          type="text"
+          id="name"
+          value={comments.name}
+          onChange={handleTextChange}
+        />
+        <br></br>
+        <br></br>
+        <label style={{color: "black"}} htmlFor="comment"><span style={{fontWeight: "bold"}}>Comment:</span></label>
+        <input
+        placeholder='Comment'
+          type="text"
+          id="comm"
+          value={comments.comm}
+          onChange={handleTextChange}
+        />
+       <br></br>
+       <button type="submit">Submit</button>
+      </form>
+        )
+       }
+   }
+
+    
+    return (
+      <section>
+        {handleColors()}
+      </section>
     );
   }
   
