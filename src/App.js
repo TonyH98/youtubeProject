@@ -2,11 +2,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
-import './App.css';
 import Home from "./Components/Nav/home"
 import About from './Components/Nav/about'
 import Navigate from "./Components/Nav/navigate"
 import VideoID from './Components/Video/VideoID'
+import ErrorMessage from "./Components/errors/ErrorMessage"
+import './App.css';
 
 
 
@@ -34,10 +35,10 @@ const backGroundColor = () => {
           <br></br>
           <br></br>
         <Routes>
-        <Route path ="/videos/:id" element ={<VideoID  colors={colors}/>}/>
+        <Route path="/videos/:id" element ={<VideoID  colors={colors}/>}/>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About colors={colors}/>} />
-        {/* <Route path="/vidoes/:*" element={<ErrorMessage/>}></Route> */}
+        <Route path="*" element={<ErrorMessage/>} />
         </Routes>
         </div>
       </Router>

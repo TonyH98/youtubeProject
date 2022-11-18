@@ -1,4 +1,4 @@
-import { useState} from "react"
+import { useState, useRef} from "react"
 import ReactPaginate from "react-paginate";
 import ResultError from "../errors/ResultsError"
 import Video from "../Video/Video"
@@ -14,29 +14,33 @@ const [currentPage, setCurrentPage] = useState(0)
  const [resultError, setResultError] = useState(false)
 const [search, setSearch] = useState("");
 
-
+const ref = useRef(null)
 
 // this function calls the fetch with the search results, sets the results.items into the youtube array.
-   function getResults(){
-    if (search.length > 0){
-    getYoutubeVideos(search)
-     .then((response) => {
-         setYoutube(response.items);
-         setResultError(true)
-       })
-       .catch((error) => {
 
-       });
+// this function gets the value that the user typed in the search bar and sets it to the search state  
+function handleTextChange(event) {
+  let title = event.target.value; 
+  setSearch(title)
+}
 
-    }
-   }
 
-  // this function gets the value that the user typed in the search bar and sets it to the search state  
-   function handleTextChange(event) {
-    const title = event.target.value;
-    setSearch(title)
-  
-  }
+
+function getResults(){
+ if (search.length > 0){
+ getYoutubeVideos(search)
+  .then((response) => {
+    setSearch("")
+      setYoutube(response.items);
+      setResultError(true)
+      ref.current.value = ''
+    })
+    .catch((error) => {
+
+    });
+
+ }
+}
 //   console.log(youtube)
 
 
@@ -57,6 +61,7 @@ function handlePageChange ({selected: selectedPage}){
     return (
         <div className="search-feature">
            <input
+           ref={ref}
             className="search"
             type="text"
             placeholder="Search..."
