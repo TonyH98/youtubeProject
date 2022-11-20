@@ -35,16 +35,10 @@ export default function Form({handleComment, colors}) {
 
     function handleSubmit(event) {
       event.preventDefault();
-      
       addComment()
       reset()
       
     }
-
-
-
-
-
 
     useEffect(() => {
       const enterKey = (event) => {
@@ -63,10 +57,12 @@ export default function Form({handleComment, colors}) {
       };
     }, [comments]);
   
+
+
      const handleColors = () => {
        if(colors === "black"){
          return (
-          <form onSubmit={ handleSubmit()}>
+          <form onSubmit={ handleSubmit}>
         <label style={{color: "white"}} htmlFor="name"><span style={{fontWeight: "bold"}}>Name:</span></label>
         <input
         placeholder='Name'

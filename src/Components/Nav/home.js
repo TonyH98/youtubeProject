@@ -56,8 +56,6 @@ const pageCount = Math.ceil(youtube.length/pageData)
 
 
 
-
-  console.log(search.length)
     return (
         <div className="search-feature">
            <input
