@@ -1,3 +1,4 @@
+
 import {useState, useEffect} from 'react'
 
 
@@ -42,8 +43,9 @@ export default function Form({handleComment, colors}) {
       const enterKey = (event) => {
         
         if (event.key === 'Enter') {
-          event.preventDefault();
-          handleSubmit(event);
+          console.log(event.key)
+           event.preventDefault();
+          handleSubmit(event)
         }
       };
   
@@ -52,16 +54,16 @@ export default function Form({handleComment, colors}) {
       return () => {
         document.removeEventListener('keydown', enterKey);
       };
-    }, []);
+    }, [comments]);
   
      const handleColors = () => {
        if(colors === "black"){
          return (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={ handleSubmit()}>
         <label style={{color: "white"}} htmlFor="name"><span style={{fontWeight: "bold"}}>Name:</span></label>
         <input
         placeholder='Name'
-        autoComplete='off'
+       autoComplete='off'
           type="text"
           id="name"
           value={comments.name}
