@@ -16,6 +16,7 @@ export default function Form({handleComment, colors}) {
       comm: comments.comm
       }
       handleComment(createComment)
+      
     }
   
     
@@ -34,10 +35,16 @@ export default function Form({handleComment, colors}) {
 
     function handleSubmit(event) {
       event.preventDefault();
+      
       addComment()
       reset()
       
     }
+
+
+
+
+
 
     useEffect(() => {
       const enterKey = (event) => {

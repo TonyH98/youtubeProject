@@ -43,17 +43,17 @@ function getResults(){
 }
 //   console.log(youtube)
 
-
 function handlePageChange ({selected: selectedPage}){
-    setCurrentPage(selectedPage)
-  }
-  const offSet = currentPage * pageData
-  
-  const currentPageData = youtube
-  .slice(offSet, offSet + pageData)
-  .map((yt) => <Video key={yt.id.videoId} yt={yt}/>)
-  
-  const pageCount = Math.ceil(youtube.length/pageData) 
+  setCurrentPage(selectedPage)
+}
+const offSet = currentPage * pageData
+
+const currentPageData = youtube
+.slice(offSet, offSet + pageData)
+.map((yt) => <Video key={yt.id.videoId} yt={yt}/>)
+
+const pageCount = Math.ceil(youtube.length/pageData) 
+
 
 
 
@@ -72,6 +72,8 @@ function handlePageChange ({selected: selectedPage}){
         <div>
             <br></br>
             <br></br>
+            {currentPageData.length === 0 ? null :
+
             <ReactPaginate
          previousLabel={"Previous"}
          nextLabel={"Next"}
@@ -81,6 +83,7 @@ function handlePageChange ({selected: selectedPage}){
          previousLinkClassName={"pagination-link"}
          nextLinkClassName={"pagination-link"}
          />  
+            }
         
          {!resultError ? (<ResultError/>):(
             <div className="thumbnails">
