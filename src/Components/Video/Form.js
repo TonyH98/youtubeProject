@@ -58,6 +58,13 @@ export default function Form({handleComment, colors}) {
     }, [comments]);
   
 
+    useEffect(() => {
+      
+    }, [])
+
+
+
+
 
      const handleColors = () => {
        if(colors === "black"){

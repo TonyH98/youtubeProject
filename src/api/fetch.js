@@ -9,7 +9,22 @@ export function getYoutubeVideos(search){
   )
 }
 
+export function updateForm(id , form){
+  const options = {
+    method: "PUT",
+    body: JSON.stringify(form),
+    headers: { "Content-Type": "application/json" },
+  };
 
+  return(
+    fetch(`/videos/${id}`, options)
+    .then((res) => {
+      return(
+        res.json()
+      )
+    })
+  )
+}
 
 
 

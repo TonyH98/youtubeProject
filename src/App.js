@@ -7,6 +7,7 @@ import About from './Components/Nav/about'
 import Navigate from "./Components/Nav/navigate"
 import VideoID from './Components/Video/VideoID'
 import ErrorMessage from "./Components/errors/ErrorMessage"
+
 import './App.css';
 
 
@@ -14,6 +15,9 @@ import './App.css';
 
 function App() {
 const [colors, setColors] = useState("white")
+
+
+console.log(process.env.REACT_APP_YOUTUBE_KEY)
 
 const backGroundColor = () => {
   if(colors === "white"){
@@ -30,12 +34,13 @@ const backGroundColor = () => {
     <div style={{height: "100vh", backgroundColor: colors}}className='wrapper'>
       <Router> 
         <Navigate/>
-        <button onClick={backGroundColor}>{colors === "white" ? "Dark Mode" : "Light Mode"}</button>
+        <input className="toggle"type="checkbox" onChange={backGroundColor}/>
         <div>
           <br></br>
           <br></br>
         <Routes>
         <Route path="/videos/:id" element ={<VideoID  colors={colors}/>}/>
+        
         <Route path="/" element={<Home colors={colors}/>} />
         <Route path="/about" element={<About colors={colors}/>} />
         <Route path="*" element={<ErrorMessage/>} />

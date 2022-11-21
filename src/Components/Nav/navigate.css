@@ -1,8 +1,8 @@
 header{
     text-align: center;
-    border: black solid 1px;
+    border: red solid 1px;
     background-color: red;
-    height:50px;
+    height:60px;
     font-size: 20px;
 }
 
@@ -12,15 +12,13 @@ nav{
     margin-top: 10px;
 }
 
-.logo{
-   font-weight: bold;
-   color: white;
-}
+
 
 .nav-links{
     list-style: none;
     display: grid;
     grid-template-columns: repeat(2, 100px);
+    margin-top: 5px;
     text-align: center;
 }
 
@@ -32,5 +30,16 @@ nav{
     border-radius: 50%;
   }
 
+a:link{
+    color: white;
+}
 
+a:visited{
+    color: white
+}
+
+.logo{
+    font-weight: bold;
+    font-size: 25px;
+}
   

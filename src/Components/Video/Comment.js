@@ -1,6 +1,9 @@
+
 import "./Comment.css"
 
 export default function Comment({comment, setComment, colors}){ 
+
+
 
     const remove = (commentData) => {
         const filter = comment.filter((c) => c !== commentData);
@@ -18,11 +21,14 @@ export default function Comment({comment, setComment, colors}){
                             null
                         )
                     }
+                
                     if(e.name.length > 0 || e.comm.length > 0){
                         return(   
                         <li style={{color: "white"}}>
-                            <span style={{fontWeight: "bold"}}>{e.name}</span>: {e.comm}
-                            <button onClick={() => remove(e)}>Remove</button>
+                            <span style={{fontWeight: "bold"}}>{e.name}</span>: {e.comm}  <button className="remove" onClick={() => remove(e)}>Remove</button>
+                            
+                          
+                        
                             </li>
                         )
                     }
@@ -44,8 +50,8 @@ export default function Comment({comment, setComment, colors}){
                     if(e.name.length > 0 || e.comm.length > 0){
                         return(   
                         <li style={{color: "black"}}>
-                            <span style={{fontWeight: "bold"}}>{e.name}</span>: {e.comm}
-                            <button onClick={() => remove(e)}>Remove</button>
+                            <span style={{fontWeight: "bold"}}>{e.name}</span>: {e.comm}  <button className="remove" onClick={() => remove(e)}>Remove</button>
+
                             </li>
                         )
                     }
