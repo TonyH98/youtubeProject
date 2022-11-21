@@ -35,7 +35,8 @@ button:hover{
     text-align: center;
     display: grid;
     grid-template-columns: repeat(2, 300px);
-    color: #FF0000
+    color: #FF0000;
+    cursor: pointer;
 }
 
 .images{
