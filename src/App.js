@@ -17,7 +17,6 @@ function App() {
 const [colors, setColors] = useState("white")
 
 
-console.log(process.env.REACT_APP_YOUTUBE_KEY)
 
 const backGroundColor = () => {
   if(colors === "white"){

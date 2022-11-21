@@ -1,4 +1,4 @@
-import { useState, useRef} from "react"
+import { useState, useRef, useEffect} from "react"
 import ReactPaginate from "react-paginate";
 import ResultError from "../errors/ResultsError"
 import Video from "../Video/Video"
@@ -11,8 +11,9 @@ const pageData = 3
 export default function Home () {
 const [youtube , setYoutube] = useState([])
 const [currentPage, setCurrentPage] = useState(0)
- const [resultError, setResultError] = useState(false)
+const [resultError, setResultError] = useState(false)
 const [search, setSearch] = useState("");
+const [storedResults, setStoredResults] = useState([])
 
 const ref = useRef(null)
 
@@ -41,14 +42,26 @@ function getResults(){
 
  }
 }
-//   console.log(youtube)
+
+
+  useEffect(() => {
+    localStorage.setItem('stored-results', JSON.stringify(youtube));
+    }, [youtube]);
+
+
+    useEffect(() => {
+        const items = JSON.parse(localStorage.getItem('stored-results'));
+        if (storedResults) {
+         setStoredResults(items);
+        }
+      }, [youtube]);
 
 function handlePageChange ({selected: selectedPage}){
   setCurrentPage(selectedPage)
 }
 const offSet = currentPage * pageData
 
-const currentPageData = youtube
+const currentPageData = storedResults
 .slice(offSet, offSet + pageData)
 .map((yt) => <Video key={yt.id.videoId} yt={yt}/>)
 

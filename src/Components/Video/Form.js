@@ -1,134 +1,141 @@
 
+
 import {useState, useEffect} from 'react'
 
 
 
-export default function Form({handleComment, colors}) {
+ export default function Form({handleComment, colors}) {
 
-    const [comments, setComment] = useState({
-      name : "",
-      comm: ""
-    });
+     const [comments, setComment] = useState({
+       name : "",
+       comm: ""
+     });
+
+//   const [storage , setStorage] = useState([])
   
-    function addComment(){
-      const createComment = {
-      name: comments.name,
-      comm: comments.comm
+//       useEffect(() => {
+//         localStorage.setItem("storage", JSON.stringify(comments))
+//       }, [comments])
+
+//    useEffect(() => {
+//   const data = JSON.parse(localStorage.getItem("storage"))
+//   if(storage){
+//     setStorage(data)
+//   }
+//       }, [comments])
+
+// console.log(storage)
+
+     function addComment(){
+       const createComment = {
+       name: comments.name,
+       comm: comments.comm
       }
-      handleComment(createComment)
+       handleComment(createComment)
       
-    }
+     }
   
     
     function handleTextChange(event) {
-      setComment({
-        ...comments, [event.target.id]: event.target.value
-      })
-    }
+       setComment({
+         ...comments, [event.target.id]: event.target.value
+       })
+     }
 
-    function reset(){
-      setComment({
-      name : "",
-      comm: ""
-      })
+     function reset(){
+       setComment({
+       name : "",
+       comm: ""
+       })
     }
 
     function handleSubmit(event) {
-      event.preventDefault();
-      addComment()
+       event.preventDefault();
+       addComment()
       reset()
       
     }
 
-    useEffect(() => {
-      const enterKey = (event) => {
+     useEffect(() => {
+       const enterKey = (event) => {
         
-        if (event.key === 'Enter') {
+         if (event.key === 'Enter') {
           console.log(event.key)
-           event.preventDefault();
-          handleSubmit(event)
-        }
-      };
+            event.preventDefault();
+           handleSubmit(event)
+       }
+       };
   
-      document.addEventListener('keydown', enterKey);
+       document.addEventListener('keydown', enterKey);
   
-      return () => {
-        document.removeEventListener('keydown', enterKey);
-      };
-    }, [comments]);
+       return () => {
+         document.removeEventListener('keydown', enterKey);
+       };
+     }, [comments]);
   
-
-    useEffect(() => {
-      
-    }, [])
-
-
-
-
-
      const handleColors = () => {
-       if(colors === "black"){
+        if(colors === "black"){
          return (
           <form onSubmit={ handleSubmit}>
-        <label style={{color: "white"}} htmlFor="name"><span style={{fontWeight: "bold"}}>Name:</span></label>
-        <input
-        placeholder='Name'
+         <label style={{color: "white"}} htmlFor="name"><span style={{fontWeight: "bold"}}>Name:</span></label>
+         <input
+         placeholder='Name'
        autoComplete='off'
-          type="text"
-          id="name"
-          value={comments.name}
-          onChange={handleTextChange}
-        />
-        <br></br>
-        <br></br>
-        <label style={{color: "white"}}htmlFor="comment"><span style={{fontWeight: "bold"}}>Comment:</span></label>
-        <input
-        placeholder='Comment'
-        autoComplete='off'
-          type="text"
+           type="text"
+           id="name"
+           value={comments.name}
+           onChange={handleTextChange}
+         />
+         <br></br>
+         <br></br>
+         <label style={{color: "white"}}htmlFor="comment"><span style={{fontWeight: "bold"}}>Comment:</span></label>
+         <input
+         placeholder='Comment'
+         autoComplete='off'
+           type="text"
           id="comm"
-          value={comments.comm}
+           value={comments.comm}
           onChange={handleTextChange}
         />
-       <br></br>
-       <button type="submit">Submit</button>
-      </form>
+        <br></br>
+        <button type="submit">Submit</button>
+       </form>
          )
-       }
-       else{
-        return (
+        }
+        else{
+         return (
 
-        <form onSubmit={handleSubmit}>
-        <label style={{color: "black"}} htmlFor="name"><span style={{fontWeight: "bold"}}>Name:</span></label>
-        <input
-        placeholder='Name'
-          type="text"
-          id="name"
-          value={comments.name}
-          onChange={handleTextChange}
-        />
+         <form onSubmit={handleSubmit}>
+         <label style={{color: "black"}} htmlFor="name"><span style={{fontWeight: "bold"}}>Name:</span></label>
+         <input
+         placeholder='Name'
+           type="text"
+           id="name"
+           value={comments.name}
+           onChange={handleTextChange}
+         />
+         <br></br>
         <br></br>
-        <br></br>
-        <label style={{color: "black"}} htmlFor="comment"><span style={{fontWeight: "bold"}}>Comment:</span></label>
+         <label style={{color: "black"}} htmlFor="comment"><span style={{fontWeight: "bold"}}>Comment:</span></label>
         <input
-        placeholder='Comment'
-          type="text"
-          id="comm"
-          value={comments.comm}
-          onChange={handleTextChange}
-        />
+         placeholder='Comment'
+           type="text"
+           id="comm"
+           value={comments.comm}
+           onChange={handleTextChange}
+         />
        <br></br>
-       <button type="submit">Submit</button>
-      </form>
-        )
-       }
-   }
+        <button type="submit">Submit</button>
+       </form>
+         )
+        }
+    }
 
     
-    return (
-      <section>
-        {handleColors()}
-      </section>
-    );
-  }
+     return (
+       <section>
+         {handleColors()}
+       </section>
+     );
+   }
   

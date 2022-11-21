@@ -1,14 +1,32 @@
 
+import { useState , useEffect} from "react";
 import "./Comment.css"
 
 export default function Comment({comment, setComment, colors}){ 
 
+    const [storage , setStorage] = useState([])
 
 
     const remove = (commentData) => {
         const filter = comment.filter((c) => c !== commentData);
         setComment(filter)
     }
+
+  
+    useEffect(() => {
+      localStorage.setItem("storage", JSON.stringify(comment))
+    }, [comment])
+
+ useEffect(() => {
+const data = JSON.parse(localStorage.getItem("storage"))
+if(storage){
+  setStorage(data)
+}
+    }, [comment])
+
+console.log(storage)
+
+
 
     const handleColors = () => {
         if(colors === "black"){
@@ -61,7 +79,7 @@ export default function Comment({comment, setComment, colors}){
             )
         }
     }
-console.log(colors)
+
 
     return(
         <section>

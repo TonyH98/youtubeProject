@@ -24,14 +24,14 @@ export default function About ({colors}){
                    Chris was born and raise in Brooklyn, NYC. Chris is pursuing a career in software development along with this career he also DJs. 
                     He loves spending time with his family and friends and volunteer when ever he can.  
                     <br></br>
-                    <a href="https://github.com/chrisking718/">Chris's Github</a>
+                    <a className="github"href="https://github.com/chrisking718/">Chris's Github</a>
                 </section>
                 <br></br>
                 <section style={{color: "black"}} className="bio-tony">
                     Tony was born and raised in Connecticut. Tony attending the Pursuit Fellowship to learn how to code in the hopes of becoming a software engineer.
                     Outside of Pursuit, he enjoys reading various graphic novels from stuff from Image Comics, Shonen Jump, and DC comics. 
                     <br></br>
-                    <a href="https://github.com/TonyH98/">Tony's Github</a>
+                    <a className="github" href="https://github.com/TonyH98/">Tony's Github</a>
                 </section>
             </div>
             )
@@ -55,14 +55,14 @@ export default function About ({colors}){
                    Chris was born and raise in Brooklyn, NYC. Chris is pursuing a career in software development along with this career he also DJs. 
                     He loves spending time with his family and friends and volunteer when ever he can.  
                     <br></br>
-                    <a href="https://github.com/chrisking718/">Chris's Github</a>
+                    <a className="github" href="https://github.com/chrisking718/">Chris's Github</a>
                 </section>
                 <br></br>
                 <section style={{color: "white"}}className="bio-tony">
                     Tony was born and raised in Connecticut. Tony attending the Pursuit Fellowship to learn how to code in the hopes of becoming a software engineer.
                     Outside of Pursuit, he enjoys reading various graphic novels from stuff from Image Comics, Shonen Jump, and DC comics. 
                     <br></br>
-                    <a href="https://github.com/TonyH98/">Tony's Github</a>
+                    <a className="github" href="https://github.com/TonyH98/">Tony's Github</a>
                 </section>
             </div>
             )

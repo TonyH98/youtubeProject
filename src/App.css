@@ -43,7 +43,7 @@
   width: 50px;
   height: 30px;
   border-radius: 25px;
-  background-color: #ccc;
+  background-color: black;
   transition: background .3s;
   outline: none;
   cursor: pointer;
@@ -64,7 +64,7 @@
 }
 
 .toggle:checked{
-  background-color: black;
+  background-color: gainsboro;
 }
 
 .toggle:checked:after{

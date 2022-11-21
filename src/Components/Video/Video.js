@@ -1,12 +1,14 @@
 
 import { Link } from "react-router-dom"
+import "./Video.css"
+
 export default function Video({yt}){
     return(
         <section>
             <div className="title">
             <Link to={`/videos/${yt.id.videoId}`}>
             <img className="images" src={yt.snippet.thumbnails.medium.url} alt="thumbnail"/>
-             <aside>{yt.snippet.title}</aside> 
+             <aside className="youtube-title" >{yt.snippet.title}</aside> 
             </Link>
             </div>
         </section>

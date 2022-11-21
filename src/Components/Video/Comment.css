@@ -12,3 +12,6 @@ ul{
   text-decoration: underline;
   cursor: pointer;
 }
+.remove:hover{
+  background-color: transparent;
+}
