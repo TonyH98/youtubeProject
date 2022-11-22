@@ -70,3 +70,13 @@
 .toggle:checked:after{
   left:70%
 }
+
+.darkmode{
+  display: grid;
+  grid-template-columns: repeat(3, 15pt);
+  margin-top: 5px;
+}
+
+.moon{
+  margin-left: 35px
+}

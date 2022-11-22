@@ -10,9 +10,6 @@ import ErrorMessage from "./Components/errors/ErrorMessage"
 
 import './App.css';
 
-
-
-
 function App() {
 const [colors, setColors] = useState("white")
 
@@ -33,7 +30,11 @@ const backGroundColor = () => {
     <div style={{height: "100vh", backgroundColor: colors}}className='wrapper'>
       <Router> 
         <Navigate/>
+        <section className="darkmode">
+        <div>{"☀️"}</div>
         <input className="toggle"type="checkbox" onChange={backGroundColor}/>
+        <div className="moon">{"🌙"}</div>
+        </section>
         <div>
           <br></br>
           <br></br>
