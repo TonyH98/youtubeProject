@@ -98,7 +98,6 @@ const pageCount = Math.ceil(youtube.length/pageData)
             <br></br>
             <br></br>
             {currentPageData.length === 0 ? null :
-
             <ReactPaginate
          previousLabel={"Previous"}
          nextLabel={"Next"}
@@ -109,7 +108,7 @@ const pageCount = Math.ceil(youtube.length/pageData)
          nextLinkClassName={"pagination-link"}
          />  
             }
-        
+        <br></br>
          {!resultError ? (<ResultError/>):(
             <div className="thumbnails">
        
