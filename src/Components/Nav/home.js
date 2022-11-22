@@ -25,7 +25,18 @@ function handleTextChange(event) {
   setSearch(title)
 }
 
+function random(){
+  getYoutubeVideos(search)
+  .then((response) => {
+    setSearch("")
+      setYoutube(response.items);
+      setResultError(true)
+      
+    })
+    .catch((error) => {
 
+    });
+}
 
 function getResults(){
  if (search.length > 0){
@@ -71,9 +82,9 @@ const pageCount = Math.ceil(youtube.length/pageData)
 
     return (
         <div className="search-feature">
-          
-         
-        
+          <div className="pre-select">
+            <button onClick={() => random()}>Random</button>
+          </div>
            <input
            ref={ref}
            autoComplete = "off"
