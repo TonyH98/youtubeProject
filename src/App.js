@@ -27,7 +27,7 @@ const backGroundColor = () => {
 
 
   return(
-    <div style={{height: "100vh", backgroundColor: colors}}className='wrapper'>
+    <div style={{height: "150vh", backgroundColor: colors}}className='wrapper'>
       <Router> 
         <Navigate/>
         <section className="darkmode">

@@ -1,8 +1,4 @@
-
-
 import {useState, useEffect} from 'react'
-
-
 
  export default function Form({handleComment, colors}) {
 
@@ -11,25 +7,10 @@ import {useState, useEffect} from 'react'
        comm: ""
      });
 
-//   const [storage , setStorage] = useState([])
-  
-//       useEffect(() => {
-//         localStorage.setItem("storage", JSON.stringify(comments))
-//       }, [comments])
-
-//    useEffect(() => {
-//   const data = JSON.parse(localStorage.getItem("storage"))
-//   if(storage){
-//     setStorage(data)
-//   }
-//       }, [comments])
-
-// console.log(storage)
-
      function addComment(){
        const createComment = {
        name: comments.name,
-       comm: comments.comm
+       comm: comments.comm,
       }
        handleComment(createComment)
       
@@ -73,6 +54,7 @@ import {useState, useEffect} from 'react'
        };
      }, [comments]);
   
+
      const handleColors = () => {
         if(colors === "black"){
          return (

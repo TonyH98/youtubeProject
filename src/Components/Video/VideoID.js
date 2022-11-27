@@ -21,7 +21,6 @@ return(
         videoId={id}
         className={"youtube-video"}
         sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation allow-presentation"
-     
         />
         <br></br>
         <section className="comment-section">

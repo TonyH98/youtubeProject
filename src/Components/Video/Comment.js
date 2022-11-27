@@ -1,31 +1,29 @@
 
 import { useState , useEffect} from "react";
+import { useParams } from "react-router-dom";
 import "./Comment.css"
 
 export default function Comment({comment, setComment, colors}){ 
 
+    const {id} = useParams()
     const [storage , setStorage] = useState([])
 
-
     const remove = (commentData) => {
-        const filter = comment.filter((c) => c !== commentData);
+        const filter = storage.filter((c) => c !== commentData);
         setComment(filter)
     }
 
   
     useEffect(() => {
-      localStorage.setItem("storage", JSON.stringify(comment))
+      localStorage.setItem(id, JSON.stringify(comment))
     }, [comment])
 
- useEffect(() => {
-const data = JSON.parse(localStorage.getItem("storage"))
-if(storage){
-  setStorage(data)
-}
-    }, [comment])
-
-console.log(storage)
-
+  useEffect(() => {
+ const data = JSON.parse(localStorage.getItem(id))
+ if(storage){
+   setStorage(data)
+ }
+     }, [comment])
 
 
     const handleColors = () => {
@@ -33,7 +31,7 @@ console.log(storage)
             return (
                 <section>
                 <ul>
-                {comment.map((e) => {
+                {storage.map((e) => {
                     if(e.name === null || e.comm === null){
                         return (
                             null
@@ -59,7 +57,7 @@ console.log(storage)
             return (
                 <section>
                 <ul>
-                {comment.map((e) => {
+                {storage.map((e) => {
                     if(e.name === null || e.comm === null){
                         return (
                             null

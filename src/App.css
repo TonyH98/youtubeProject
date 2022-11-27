@@ -43,7 +43,7 @@
   width: 50px;
   height: 30px;
   border-radius: 25px;
-  background-color: black;
+  background-color:gainsboro;
   transition: background .3s;
   outline: none;
   cursor: pointer;
