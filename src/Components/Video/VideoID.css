@@ -9,3 +9,9 @@
     margin-right: 100px;
     padding-top: 20px;
 }
+
+
+.video-page{
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
