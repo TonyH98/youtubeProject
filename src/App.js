@@ -11,6 +11,8 @@ import ErrorMessage from "./Components/errors/ErrorMessage"
 import './App.css';
 
 function App() {
+  const [number , setNumber] = useState("")
+
 const [colors, setColors] = useState("white")
 
 
@@ -29,7 +31,7 @@ const backGroundColor = () => {
   return(
     <div style={{height: "150vh", backgroundColor: colors}}className='wrapper'>
       <Router> 
-        <Navigate/>
+        <Navigate number={number} setNumber={setNumber}/>
         <section className="darkmode">
         <div>{"☀️"}</div>
         <input className="toggle"type="checkbox" onChange={backGroundColor}/>
@@ -41,7 +43,7 @@ const backGroundColor = () => {
         <Routes>
         <Route path="/videos/:id" element ={<VideoID  colors={colors}/>}/>
         
-        <Route path="/" element={<Home colors={colors}/>} />
+        <Route path="/" element={<Home setNumber={setNumber}colors={colors} number={number}/>} />
         <Route path="/about" element={<About colors={colors}/>} />
         <Route path="*" element={<ErrorMessage/>} />
         </Routes>

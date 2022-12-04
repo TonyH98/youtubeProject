@@ -8,8 +8,7 @@ import "./home.css"
 
 const pageData = 4
 
-export default function Home () {
-
+export default function Home ({number, setNumber}) {
   const [order , setOrder] = useState("")
   const [youtube , setYoutube] = useState([])
   const [currentPage, setCurrentPage] = useState(0)
@@ -29,8 +28,9 @@ export default function Home () {
   
 
   function random(){
-    getYoutubeVideos(search , order)
+    getYoutubeVideos(search , order, number)
     .then((response) => {
+     setNumber("")
       setOrder("")
       setSearch("")
       setYoutube(response.items);
@@ -46,8 +46,9 @@ export default function Home () {
 
   function getResults(){
     if (search.length > 0){
-      getYoutubeVideos(search , order)
+      getYoutubeVideos(search , order , number )
       .then((response) => {
+        setNumber("")
         setSearch("")
         setOrder("")
         setYoutube(response.items);
@@ -60,9 +61,8 @@ export default function Home () {
       
     }
   }
-  
-  
  
+  
   useEffect(() => {
     localStorage.setItem('stored-results', JSON.stringify(youtube));
     }, [youtube]);
@@ -86,7 +86,7 @@ const currentPageData = storedResults
 
 const pageCount = Math.ceil(youtube.length/pageData) 
 
-console.log(order)
+
 
     return (
         <div className="search-feature">
@@ -100,6 +100,7 @@ console.log(order)
               <option value="viewCount">View Count</option>
             </select>
           </div>
+         
           <div className="pre-select">
             <button onClick={() => random()}>Random</button>
           </div>

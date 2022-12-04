@@ -4,10 +4,10 @@ const URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='
 
 
 
-export function getYoutubeVideos(search , order){
+export function getYoutubeVideos(search , order , number){
   return (
     // console.log(`fetch param ${search}`)
-     fetch(`${URL}${search}&maxResults=20&order=${order}&key=${key}`)
+     fetch(`${URL}${search}&maxResults=${number}&order=${order}&key=${key}`)
      
      .then((res) => res.json())
   )

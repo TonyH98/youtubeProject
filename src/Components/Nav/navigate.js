@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom"
+
 import  "./navigate.css"
 
-export default function Navigate () {
+export default function Navigate ({number , setNumber}) {
+
+
+
     return(
         <header>
       <nav>
@@ -17,6 +21,15 @@ export default function Navigate () {
             <Link to="/about">About</Link>
           </aside>
         </section>
+        <div className="number-input">
+            <input
+            type="number"
+            min="5"
+            max="50"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+            />
+          </div>
       
       </nav>
     </header>
