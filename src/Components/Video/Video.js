@@ -14,7 +14,7 @@ export default function Video({yt}){
             <img className="images" src={yt.snippet.thumbnails.medium.url} alt="thumbnail"/>
             </Link>
             <Link to={`/videos/${yt.id.videoId}`}>
-
+                
              <aside style={{textDecorationStyle: "transparent"}}className="youtube-title" >{yt.snippet.title}</aside> 
             </Link>
             </div>

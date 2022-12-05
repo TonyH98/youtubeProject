@@ -10,7 +10,8 @@ import "./home.css"
 const pageData = 4
 
 export default function Home ({number, setNumber, setOrder , order}) {
- 
+  let [decrease , setDecrease] = useState(0)
+let [like , setLike] = useState(0)
   const [youtube , setYoutube] = useState([])
   const [currentPage, setCurrentPage] = useState(0)
   const [resultError, setResultError] = useState(false)
@@ -71,9 +72,10 @@ const currentPageData = storedResults
 const pageCount = Math.ceil(youtube.length/pageData) 
 
 
-
     return (
         <div className="search-feature">
+
+
            <input
            ref={ref}
            autoComplete = "off"

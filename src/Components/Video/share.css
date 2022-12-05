@@ -27,3 +27,7 @@ padding: 10px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
 }
+
+.share-button{
+    border-radius: 40%;
+}

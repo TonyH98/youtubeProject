@@ -10,15 +10,36 @@ import Share from "./share";
 
 export default function VideoID({colors}){   
 const {id} = useParams()
+let [decrease , setDecrease] = useState(0)
+let [like , setLike] = useState(0)
 const [show , setShow] = useState(false)
 const [comment, setComment] = useState(CommentData)
 const [relate , setRelate] = useState([])
 
 
+const likeIncrease = () => {
+    if(decrease >= 0){
+      setLike(like + 1)
+      setDecrease(decrease - 1)
+  
+    }
+    else if (decrease === 0){
+      setDecrease(0)
+    }
+  }
+  
+  const decreasebutton = () => {
+    if(like >= 0){
+        setDecrease(decrease + 1)
+        setLike(like - 1)
+    }
+    else if (like === 0){
+        setLike(0)
+    }
+   
+  }
+  
 
-// function toggleInfo(){
-//     setShow(!show)
-// }
 
 function handleComment(comments){
     setComment([...comment, comments])
@@ -46,9 +67,20 @@ return(
         className={"youtube-video"}
         sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation allow-presentation"
         />
+        <div className="video-buttons">
         <div className="share-div">
             <button className="share-button" onClick={() => setShow(true)}>Share</button>
              <Share  onClose={() => setShow(false)} show={show}/>
+        </div>
+
+        <div className="like">
+            <button  onClick={likeIncrease} className="like">👍{like}</button>
+        </div>
+        <div className="dislike">
+
+            <button   onClick={decreasebutton} className="dislike">👎{decrease}</button>
+        </div>
+
         </div>
         </div>
         <br></br>
