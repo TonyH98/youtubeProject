@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom"
-
+import { useState } from "react"
+import Login from "./login"
 import  "./navigate.css"
 
 export default function Navigate ({number , setNumber , order , setOrder}) {
-
+  const [show , setShow] = useState(false)
 
 
     return(
@@ -43,7 +44,10 @@ export default function Navigate ({number , setNumber , order , setOrder}) {
             </select>
           </div>
         </section>
-      
+        <div className="login">
+        <button className="share-button" onClick={() => setShow(true)}>Login</button>
+        <Login onClose={() => setShow(false)} show={show}/>
+        </div>
       </nav>
     </header>
     )
