@@ -3,13 +3,14 @@ import ReactPaginate from "react-paginate";
 import ResultError from "../errors/ResultsError"
 import Video from "../Video/Video"
 import {getYoutubeVideos} from '../../api/fetch'
+
 import "./home.css"
 
 
 const pageData = 4
 
-export default function Home ({number, setNumber}) {
-  const [order , setOrder] = useState("")
+export default function Home ({number, setNumber, setOrder , order}) {
+ 
   const [youtube , setYoutube] = useState([])
   const [currentPage, setCurrentPage] = useState(0)
   const [resultError, setResultError] = useState(false)
@@ -26,24 +27,6 @@ export default function Home ({number, setNumber}) {
     setSearch(title)
   }
   
-
-  function random(){
-    getYoutubeVideos(search , order, number)
-    .then((response) => {
-     setNumber("")
-      setOrder("")
-      setSearch("")
-      setYoutube(response.items);
-      setResultError(true)
-      
-    })
-    .catch((error) => {
-      
-    });
-  }
-  
-  
-
   function getResults(){
     if (search.length > 0){
       getYoutubeVideos(search , order , number )
@@ -60,6 +43,7 @@ export default function Home ({number, setNumber}) {
       });
       
     }
+   
   }
  
   
@@ -90,20 +74,6 @@ const pageCount = Math.ceil(youtube.length/pageData)
 
     return (
         <div className="search-feature">
-          <div className="select-bar">
-            <select value={order} onChange={(e) => setOrder(e.target.value)}>
-              <option value=""></option>
-              <option value="date">Date</option>
-              <option value="rating">Rating</option>
-              <option value="relevance">Relevance</option>
-              <option value="title">Title</option>
-              <option value="viewCount">View Count</option>
-            </select>
-          </div>
-         
-          <div className="pre-select">
-            <button onClick={() => random()}>Random</button>
-          </div>
            <input
            ref={ref}
            autoComplete = "off"

@@ -5,17 +5,25 @@ import CommentData from "./CommentData"
 import Form from "./Form"
 import YouTube from "react-youtube";
 import "./VideoID.css"
+import Share from "./share";
+
 
 export default function VideoID({colors}){   
-const [comment, setComment] = useState(CommentData)
 const {id} = useParams()
+const [show , setShow] = useState(false)
+const [comment, setComment] = useState(CommentData)
 const [relate , setRelate] = useState([])
+
+
+
+// function toggleInfo(){
+//     setShow(!show)
+// }
 
 function handleComment(comments){
     setComment([...comment, comments])
 }
 const key = process.env.REACT_APP_YOUTUBE_KEY
-
 
 
 const URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&video=${id}&key=${key}`
@@ -38,6 +46,10 @@ return(
         className={"youtube-video"}
         sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation allow-presentation"
         />
+        <div className="share-div">
+            <button className="share-button" onClick={() => setShow(true)}>Share</button>
+             <Share  onClose={() => setShow(false)} show={show}/>
+        </div>
         </div>
         <br></br>
         <section className="comment-section">

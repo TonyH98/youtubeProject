@@ -12,6 +12,7 @@ import './App.css';
 
 function App() {
   const [number , setNumber] = useState("")
+  const [order , setOrder] = useState("")
 
 const [colors, setColors] = useState("white")
 
@@ -31,7 +32,7 @@ const backGroundColor = () => {
   return(
     <div style={{height: "150vh", backgroundColor: colors}}className='wrapper'>
       <Router> 
-        <Navigate number={number} setNumber={setNumber}/>
+        <Navigate number={number} setNumber={setNumber} order={order} setOrder={setOrder}/>
         <section className="darkmode">
         <div>{"☀️"}</div>
         <input className="toggle"type="checkbox" onChange={backGroundColor}/>
@@ -43,7 +44,7 @@ const backGroundColor = () => {
         <Routes>
         <Route path="/videos/:id" element ={<VideoID  colors={colors}/>}/>
         
-        <Route path="/" element={<Home setNumber={setNumber}colors={colors} number={number}/>} />
+        <Route path="/" element={<Home setNumber={setNumber}colors={colors} number={number} order={order} setOrder={setOrder}/>} />
         <Route path="/about" element={<About colors={colors}/>} />
         <Route path="*" element={<ErrorMessage/>} />
         </Routes>
